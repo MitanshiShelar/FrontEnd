@@ -1,0 +1,36 @@
+
+.left a{
+    color: black;
+    font-family:montserrat;
+}
+img{
+    height: 50px;
+    width: 130px;
+}
+ .right .nav-item i{
+    margin: 0 10px;  
+}
+.right i{
+    font-size: 20px;  
+}
+button{
+   background-color: rgb(245,245,245);
+ border-style: none;
+}
+input{
+    background-color: rgb(245,245,245);
+    border-radius: 50px;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 9;
+}
+.nav-item{
+    margin-top: 5px;
+}
+

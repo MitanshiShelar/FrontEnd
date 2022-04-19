@@ -1,0 +1,14 @@
+.carousel-item{
+    height: 500px;
+}
+.carousel-item img{
+    height: 100%;
+}
+.container img{
+    height: 300px;
+   
+}
+
+.card{
+    border-radius: 1px;
+}
