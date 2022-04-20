@@ -2,22 +2,22 @@
     <form action="">
       <div class="title">Login</div>
       <div class="input-box underline">
-        <input type="text" placeholder="Enter Your Email" required>
+        <input type="text" #email placeholder="Enter Your Email" required>
         <div class="underline"></div>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Enter Your Password" required>
+        <input type="password" #password placeholder="Enter Your Password" required>
         <div class="underline"></div>
       </div>
       <div class="input-box button">
-        <input type="submit" name="" value="Continue">
+        <input type="submit" (click)="signin(email.value,password.value)" name="" value="Continue">
       </div>
     </form>
       <div class="option">Not a member?</div>
       
       <div class="Sign-up">
           
-        <a (click)="signup()">Sign up Now </a>
+        <a (click)="signup()" href="#" >Sign up Now </a>
       </div>
   </div>
   <!-- <router-outlet></router-outlet> -->
