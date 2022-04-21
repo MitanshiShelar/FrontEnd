@@ -1,24 +1,24 @@
-<div class="container">
-    <form action="">
+<div class="container text-center">
+  <form>
       <div class="title">Login</div>
       <div class="input-box underline">
-        <input type="text" #email placeholder="Enter Your Email" required>
+        <input type="text" [(ngModel)]="email" name="email"  placeholder="Enter Your Email" required>
         <div class="underline"></div>
       </div>
       <div class="input-box">
-        <input type="password" #password placeholder="Enter Your Password" required>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Enter Your Password" required>
         <div class="underline"></div>
       </div>
       <div class="input-box button">
-        <input type="submit" (click)="signin(email.value,password.value)" name="" value="Continue">
+        <input type="submit" (click)="signin()" value="Continue">
       </div>
-    </form>
       <div class="option">Not a member?</div>
       
       <div class="Sign-up">
           
         <a (click)="signup()" href="#" >Sign up Now </a>
       </div>
+    </form>
   </div>
   <!-- <router-outlet></router-outlet> -->
 

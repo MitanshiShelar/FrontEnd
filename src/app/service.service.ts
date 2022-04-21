@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 export class ServiceService {
 
   Signup ="http://localhost:3000/user/signup";
-  Signin ="http://localhost:3000/user/signin";
   pApi ="http://localhost:3000/product//view-product";
   cApi = "http://localhost:3000/category/view-category"
+  siginApi = "http://localhost:3000/user/signin";
+  cartApi = "";
 
   constructor(private http:HttpClient) { }
   signup(name:any,email:any,password:any,mobile:any):Observable<any>{
@@ -29,5 +30,20 @@ export class ServiceService {
   checktoken(){
     return !!localStorage.getItem('jwt-token');
   }
-  
+
+  signin(e:string, p:string):Observable<any>{
+    console.log("Service---called......");
+    window.alert("called......");
+    let user = {
+      email:e,
+      password:p
+    }
+    console.log(user);
+    return this.http.post<any>(this.siginApi,user);
+  }
+
+  addToCart(product:any,user:any):Observable<any>{
+    return this.http.post(this.cartApi,{user,product});
+  }
+
 }

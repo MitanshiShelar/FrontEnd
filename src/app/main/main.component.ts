@@ -9,12 +9,16 @@ import { ServiceService } from '../service.service';
 })
 export class MainComponent implements OnInit {
 
+  public totalRecords?: number;
+  page:number = 1;
+
   constructor(private service:ServiceService,private route:Router) {
+
     this.service.getProduct()
     .subscribe(data=>{
       console.log(data);
       this.products=data;
-      console.log(data);
+      this.totalRecords = data.products.length;
     })
 
     this.service.getCategory()
@@ -34,12 +38,13 @@ export class MainComponent implements OnInit {
     this.model_product=product;
   }
 
-  add(mode:string){
+  add(mode:string,product:any){
 
     if(this.service.checktoken()){
-      alert("inservice")
+      
       if(mode == "cart"){
         alert('added in cart')
+        
       }
     }else{
       alert("not in a user")
@@ -47,5 +52,7 @@ export class MainComponent implements OnInit {
     }
 
   }
+
+  
 
 }
