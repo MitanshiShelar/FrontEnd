@@ -24,8 +24,11 @@ export class SignUpComponent implements OnInit {
     this.name=name;
     this.password=password;
     this.mobile=mobile;
-    this.service.signup(name, email, password, mobile);
-    this.router.navigate(['signin']);
+    this.service.signup(name, email, password, mobile)
+    .subscribe(data =>{
+      console.log(data);
+    })
+    
   }
 
 }

@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-lg-9">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-borderless table-shopping-cart">
+                        <thead class="text-muted">
+                            <tr class="small text-uppercase">
+                                <th scope="col">Product</th>
+                                <th scope="col" width="120">Quantity</th>
+                                <th scope="col" width="120">Price</th>
+                                <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products.productlist index as i" >
+                                <td>
+                                    <figure class="itemside align-items-center">
+                                        <span>{{i+1}}</span>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <figure class="itemside align-items-center">
+                                        <div class="aside"><img src="{{product.frontImage}}" class="img-sm"></div>
+                                        <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{product.name}}</a>
+                                            <p class="text-muted small">SIZE: 26 <br> Brand: {{product.brand}}</p>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td> <select #quantity class="form-control" (click)="update_quantity(quantity.value,i)">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select> </td>
+                                <td>
+                                    <div class="price-wrap"> <var class="price">Rs {{product.price}}</var> <small class="text-muted"> $9.20 each </small> </div>
+                                </td>
+                                <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a class="btn btn-light" (click)="remove_to_cart(product._id,i)" data-abc="true"> Remove</a> </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </aside>
+        <aside class="col-lg-3">
+        
+            <div class="card">
+                <div class="card-body">
+                    <dl class="dlist-align">
+                        <dt>Total price:</dt>
+                        <dd class="text-right ml-3">$69.97</dd>
+                    </dl>
+                
+                    <dl class="dlist-align">
+                        <dt>Total Product:</dt>
+                        <dd class="text-right text-dark b ml-3"><strong>23</strong></dd>
+                    </dl>
+                    <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+<!-- <div class="container">
+    <h3>Products</h3>
+    <div class="row">
+      <div class="col-3" *ngFor="let product of products.productlist">
+        <div class="card product_card border-0 mt-3 mb-4 " >
+          <div class="img-box">
+            <div class="part-1">
+              <ul>
+                  <li><a ><i class="fas fa-shopping-cart"></i></a></li>
+                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                  <li><a data-toggle="modal" data-target="#myModal" ><i class="fas fa-expand"></i></a></li>
+              </ul>
+          </div>
+            <img src="{{product.frontImage}}" alt="">
+          </div>
+          <div class="content_box text-center mt-1">
+            <h6>{{product.brand}}</h6>
+            <h6>Price : Rs {{product.price}}</h6>
+            <div class="color">
+              <span>Color : </span>
+              <span class="dot" style="background-color:red"></span>
+              <span class="dot" style="background-color:blue;"></span>
+              <span class="dot" style="background-color:orange;"></span>
+              <span class="dot" style="background-color:purple;"></span>
+            </div>
+            <div class="icon_product">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+

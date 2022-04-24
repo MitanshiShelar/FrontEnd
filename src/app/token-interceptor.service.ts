@@ -15,7 +15,6 @@ export class TokenInterceptorService implements HttpInterceptor{
     return next.handle(tokenizedRequest);
   }
 
-
   constructor() { }
 
 }

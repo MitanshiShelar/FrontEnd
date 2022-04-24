@@ -7,10 +7,13 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { MenSectionComponent } from './men-section/men-section.component';
-import { WomenSectionComponent } from './women-section/women-section.component';
-import { KidsSectionComponent } from './kids-section/kids-section.component';
-import { AddCategoryComponent } from './add-category/add-category.component';
+import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { CategoryComponent } from './category/category.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -20,16 +23,19 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     NavbarComponent,
     SignInComponent,
     SignUpComponent,
-    MenSectionComponent,
-    WomenSectionComponent,
-    KidsSectionComponent,
-    AddCategoryComponent
+    CartComponent,
+    WishListComponent,
+    CategoryComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

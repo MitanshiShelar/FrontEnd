@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WomenSectionComponent } from './women-section.component';
+import { WishListComponent } from './wish-list.component';
 
-describe('WomenSectionComponent', () => {
-  let component: WomenSectionComponent;
-  let fixture: ComponentFixture<WomenSectionComponent>;
+describe('WishListComponent', () => {
+  let component: WishListComponent;
+  let fixture: ComponentFixture<WishListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WomenSectionComponent ]
+      declarations: [ WishListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WomenSectionComponent);
+    fixture = TestBed.createComponent(WishListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

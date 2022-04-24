@@ -34,3 +34,16 @@ input{
     margin-top: 5px;
 }
 
+.overlay{
+    position:absolute;
+    height:200px;
+    width:100%;
+    top:60px;
+    background-color:red;
+    z-index: 1000;
+    display:block;
+}
+
+table {
+    width: 100%;
+}

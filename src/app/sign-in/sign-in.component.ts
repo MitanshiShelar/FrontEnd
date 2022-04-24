@@ -10,17 +10,32 @@ import { ServiceService } from '../service.service';
 export class SignInComponent implements OnInit {
 
   constructor(private router:Router,private service:ServiceService) { }
-
-  ngOnInit(): void {
-  }
-
+ ngOnInit(){}
   public email:string = '';
   public password:string = '';
 
-  signin(email:string, password:string){
-    this.email = email;
-    this.password = password;
-    
+  signin(){
+    alert("your email : "+this.email);
+
+    this.service.signin(this.email,this.password)
+    .subscribe(data => {
+      console.log(data);
+      alert('inside subscribe')
+      console.log(data);
+
+      if(data.status == "login success"){
+        alert("Login success")
+        this.router.navigate(['']);
+        sessionStorage.setItem('userId',data.current_user._id);
+        localStorage.setItem("jwt-token",data.token);
+      }else{
+        alert("invalid credentials");
+      }
+
+    },err=>{
+      window.alert(err.status);
+      console.log(err);
+    });
   }
 
   signup(){

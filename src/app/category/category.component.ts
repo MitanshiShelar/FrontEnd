@@ -1,37 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class MainComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   public totalRecords?: number;
   page:number = 1;
 
-  constructor(private service:ServiceService,private route:Router) {
-
-    this.service.getProduct()
-    .subscribe(data=>{
-      console.log(data);
-      this.products=data;
-      this.totalRecords = data.products?.length;
-    })
-
-    this.service.getCategory()
-    .subscribe(data=>{
-      this.categories = data;
+  constructor(private service:ServiceService,route:ActivatedRoute) {
+    console.log(route.snapshot.paramMap.get('id'))
+    this.service.categoryProduct(route.snapshot.paramMap.get('id'))
+    .subscribe(product=>{
+      console.log("............")
+      console.log(product)
+      this.products=product;
+      this.products=product;
+      this.totalRecords = product.products?.length;
     });
+    console.log("product : "+this.products)
+
   }
 
   ngOnInit(): void {
   }
-
+  public products:any = '';
   public categories:any ='';
-  public products:any ='';
   public model_product:any ='';
   public bgImage:any ='';
 
@@ -56,7 +54,6 @@ export class MainComponent implements OnInit {
     }
   }
 
-
   addToCart(productId:any){
     var userId = this.service.getUserId();
     console.log("productId : "+productId);
@@ -64,13 +61,8 @@ export class MainComponent implements OnInit {
     if(userId){
       this.service.addToCart(productId,userId)
       .subscribe(data =>{
-        if(data){
-          alert("added to cart")
-        }
+        console.log(data);
       })
-    }else{
-      alert("please first signin");
-      this.route.navigate(['signin'])
     }
   }
 
