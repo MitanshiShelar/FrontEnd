@@ -12,9 +12,22 @@ export class ServiceService {
   pApi ="http://localhost:3000/product//view-product";
   cApi = "http://localhost:3000/category/view-category"
   siginApi = "http://localhost:3000/user/signin";
-  cartApi = "";
+  cartApi = "http://localhost:3000/cart/add-to-cart";
+  cpApi= "http://localhost:3000/product/show-products";
+  viewCart = "http://localhost:3000/cart/view";
+  remove_to_cart = "http://localhost:3000/cart/delete-cart";
 
   constructor(private http:HttpClient) { }
+
+
+  view_cart(uId:any):Observable<any>{
+    return this.http.post(this.viewCart,{uId:uId});
+  }
+
+  removeToCart(pId:any,uId:any):Observable<any>{
+    return this.http.post(this.remove_to_cart,{pId:pId,uId:uId});
+  }
+
   signup(name:any,email:any,password:any,mobile:any):Observable<any>{
     return this.http.post(this.Signup,{name,email,password,mobile})
   }
@@ -31,6 +44,18 @@ export class ServiceService {
     return !!localStorage.getItem('jwt-token');
   }
 
+  getUserId(){
+    console.log(sessionStorage.getItem('userId'))
+    return sessionStorage.getItem('userId');
+  }
+
+  categoryProduct(catId:any):Observable<any>{
+    console.log("service.......")
+    console.log(catId);
+    console.log("service.......")
+    return this.http.post(this.cpApi,{catId});
+  }
+
   signin(e:string, p:string):Observable<any>{
     console.log("Service---called......");
     window.alert("called......");
@@ -42,8 +67,8 @@ export class ServiceService {
     return this.http.post<any>(this.siginApi,user);
   }
 
-  addToCart(product:any,user:any):Observable<any>{
-    return this.http.post(this.cartApi,{user,product});
+  addToCart(pId:any,uId:any):Observable<any>{
+    return this.http.post(this.cartApi,{uId,pId});
   }
 
 }

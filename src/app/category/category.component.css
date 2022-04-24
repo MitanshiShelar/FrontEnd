@@ -1,0 +1,116 @@
+
+.product_card{
+    margin:auto;
+    height:300px;
+    width:200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product_card .img-box{
+    height:60%;
+    width:100%;
+}
+
+.product_card:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.img-box img{
+    height:100%;
+    width:100%;
+}
+
+.color .dot{
+    height: 10px;
+    width:10px;
+    border-radius:50%;
+    margin-right:5px;
+    display: inline-block;
+}
+
+.icon_product i{
+    color:yellow;
+}
+
+.part-1 ul {
+    position: absolute;
+    top: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+}
+
+.product_card:hover .part-1 ul {
+    top: 30px;
+    opacity: 1;
+}
+
+.part-1 ul li {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.part-1 ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    line-height: 40px;
+    background-color: rgba(185, 43, 131, 0.787);
+    color:  #ffffff;
+    text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: all 0.2s;
+}
+
+.part-1 ul li:hover{
+    font-size:20px;
+}
+
+
+.box1{
+    height:400px;
+    width:700px;
+}
+
+.bcol{
+    height:350px;
+}
+
+.smallbox{
+    display:flex;
+    justify-content: space-between;
+    height:100%;
+    width:100%;
+    flex-direction:column;
+}
+
+.sbox{
+    height:70px;
+    width:70px;
+    border:1px solid black;
+}
+
+.sbox img{
+    height:70px;
+    width: 70px;
+}
+
+.bigbox{
+    height:100%;
+    width:100%;
+    border:1px solid black;
+}
+
+.bbox{
+    height:100%;
+    width:100%;
+}
+
+.bbox img{
+    height:100%;
+    width:100%
+}

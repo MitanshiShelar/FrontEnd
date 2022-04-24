@@ -46,22 +46,23 @@
 
 <div class="container  mt-5 text-center mb-3">
   <!-- categories start from here -->
-  <h4>BROWSE BY CATEGORIES</h4>
+  <h2>BROWSE BY CATEGORIES</h2>
   <div class="row card_container align-item-center">
     <div class="card category_card mt-3 ms-3 me-3" *ngFor="let category of categories">
       <img
         class="card-img-top"
         src="{{category.categoryImage}}"
         alt="Card image"
-        routerLink="['category',category._id]"
+        
+        routerLink="category/{{category._id}}"
       />
     </div>
   </div>
   <!-- categories ends from here -->
 </div>
 
-<div class="container">
-  <h3>Products</h3>
+<div class="container mt-3">
+  <h1>Products</h1>
   <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6" *ngFor="let product of products | paginate:{id:'listing_pagination',
     itemsPerPage: 10,
@@ -71,7 +72,7 @@
         <div class="img-box">
           <div class="part-1">
             <ul>
-                <li><a (click)="add('cart',product)"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a (click)="addToCart(product._id)"><i class="fas fa-shopping-cart"></i></a></li>
                 <li><a href="#"><i class="fas fa-heart"></i></a></li>
                 <li><a data-toggle="modal" data-target="#myModal" (click)="modal(product.frontImage,product.bottomImage,product.rightImage,product.leftImage)"><i class="fas fa-expand"></i></a></li>
             </ul>
@@ -79,21 +80,20 @@
           <img src="{{product.frontImage}}" alt="">
         </div>
         <div class="content_box text-center mt-1">
-          <h6>{{product.brand}}</h6>
-          <h6>Price : Rs {{product.price}}</h6>
-          <div class="color">
+          <h4 style="margin:0;">{{product.brand}}</h4>
+          <h4 style="margin:0;">Price : Rs {{product.price}}</h4>
+          <div class="color"mt-1>
             <span>Color : </span>
-            <span class="dot" style="background-color:red"></span>
-            <span class="dot" style="background-color:blue;"></span>
+            <span class="dot" *ngFor="let color of product.color" [style.background-color]='color.color'></span>
+            <!-- <span class="dot" style="background-color:blue;"></span>
             <span class="dot" style="background-color:orange;"></span>
-            <span class="dot" style="background-color:purple;"></span>
+            <span class="dot" style="background-color:purple;"></span> -->
           </div>
-          <div class="icon_product">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <div class="color"mt-1>
+            <span>Size : </span>
+            <span class="dot" *ngFor="let size of product.size">{{size.size}}</span>
           </div>
+          
         </div>
       </div>
     </div>
@@ -104,15 +104,15 @@
 </div>
 
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog  modal-sm">
     <div class="modal-content box1">
       
       <!-- Modal body -->
-      <div class="modal-body ">
+      <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-3 scol" style="background-color:red">
+            <div class="col-3 scol">
               <div class="smallbox">
                 <div class="sbox">
                   <img [src]="model_product.image1" (click)="bigshow(1)" alt="">
@@ -128,7 +128,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-9 bcol" style="background-color:green">
+            <div class="col-9 bcol">
               <div class="bigbox">
                 <div class="bbox">
                   <img [src]="bgImage" alt="">

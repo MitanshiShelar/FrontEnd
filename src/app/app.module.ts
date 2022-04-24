@@ -12,6 +12,8 @@ import { CartComponent } from './cart/cart.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { CategoryComponent } from './category/category.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
